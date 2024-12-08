@@ -1,0 +1,283 @@
+/* styles.css */
+body {
+  font-family: "Microsoft YaHei", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-image: url("./背景图.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #333; /* 更深的文本颜色 */
+}
+
+header {
+  background-color: rgba(52, 58, 64, 0.8);
+  color: white;
+  padding: 10px 0;
+  position: relative;
+}
+
+header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+header nav ul li {
+  margin: 0 20px; /* 增加导航项之间的间距 */
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s; /* 添加过渡效果 */
+}
+
+header nav ul li a:hover {
+  color: #ffcc00; /* 悬停时的颜色变化 */
+}
+
+.avatar-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-align: center;
+}
+
+.avatar {
+  width: 60px; /* 增加头像大小 */
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-bottom: 10px;
+}
+
+.nickname {
+  font-size: 16px; /* 增加昵称字体大小 */
+  color: white; /* 尼称颜色改为白色 */
+}
+
+main.container {
+  padding: 20px;
+  position: relative;
+}
+
+.content {
+  margin-bottom: 30px; /* 增加内容区域的底部间距 */
+}
+
+.content article {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #333; /* 更深的文本颜色 */
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sidebar {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  color: #333; /* 更深的文本颜色 */
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 10px 0; /* 增加链接的内边距 */
+  border-bottom: 1px solid #ddd; /* 添加底部边框 */
+  text-decoration: none;
+  color: #007bff;
+  transition: background-color 0.3s; /* 添加过渡效果 */
+}
+
+.sidebar ul li a:hover {
+  background-color: #f0f0f0; /* 悬停时的背景颜色变化 */
+}
+
+footer {
+  color: black;
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: -100;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-8 {
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+  padding: 15px;
+}
+
+.col-md-4 {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+  padding: 15px;
+}
+
+/* 媒体查询 */
+@media (max-width: 768px) {
+  .col-md-8,
+  .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .avatar-container {
+    top: auto;
+    bottom: 10px;
+    left: 10px; /* 在小屏幕上调整头像位置 */
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header nav ul li {
+    margin: 10px 0;
+  }
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.carousel-item {
+  min-width: 100%;
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  cursor: pointer;
+  position: relative;
+}
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.carousel-control.prev {
+  left: 10px;
+}
+.carousel-control.next {
+  right: 10px;
+}
+/* 隐藏侧边栏内容，默认只显示第一个 */
+.sidebar ul li ul {
+  display: none;
+}
+.sidebar ul li:first-child ul {
+  display: block;
+}
+/* 高亮侧边栏链接 */
+.sidebar ul li a.active {
+  font-weight: bold;
+  color: #ff6347; /* 橙红色 */
+}
+/* 图片下方透明文字 */
+.carousel-item .caption {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 5px;
+  display: none; /* 默认隐藏 */
+}
+.carousel-item:hover .caption {
+  display: block; /* 鼠标悬停时显示 */
+}
+
+/* 新增样式 */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+.content,
+.sidebar {
+  width: 45%; /* 设置宽度相同 */
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .content,
+  .sidebar {
+    width: 100%;
+  }
+}
+.col-md-8.content {
+  width: 60%; /* 调整内容区域宽度 */
+}
+
+.col-md-4.sidebar {
+  width: 40%; /* 增加侧边栏宽度 */
+}
+/* 移除或调整默认宽度设置 */
+.col-md-8.content,
+.col-md-4.sidebar {
+  width: 100%; /* 默认情况下设置为100%宽度 */
+}
+
+/* 在媒体查询中调整宽度 */
+@media (min-width: 769px) {
+  /* 假设769px及以上为桌面设备 */
+  .col-md-8.content {
+    width: 60%; /* 调整内容区域宽度 */
+  }
+
+  .col-md-4.sidebar {
+    width: 40%; /* 增加侧边栏宽度 */
+  }
+}
